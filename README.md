@@ -1,12 +1,81 @@
-# React + Vite
+# Currency Converter App 🌍💱
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React-based currency converter that allows users to convert amounts between different currencies using live exchange rates from [Fawaz Ahmed's Currency API](https://github.com/fawazahmed0/currency-api).
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Real-time currency conversion using external API.
+* Swap between source and target currencies with one click.
+* Clean and responsive UI with Tailwind CSS.
+* Custom `useCurrencyInfo` hook to fetch and manage exchange rates.
+* Reusable `InputBox` component for currency input and selection.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **React** (functional components + hooks)
+* **Tailwind CSS** for styling
+* **Fetch API** for data fetching
+
+## 📂 Project Structure
+
+```
+src/
+ ├── App.js             # Main app component
+ ├── components/
+ │    └── InputBox.js   # Reusable input + select box component
+ ├── hooks/
+ │    └── useCurrencyInfo.js  # Custom hook to fetch currency info
+ ├── App.css
+ └── index.js
+```
+
+## ⚙️ How to Run
+
+1️⃣ Clone the repository:
+
+```bash
+git clone <your-repo-url>
+cd <project-folder>
+```
+
+2️⃣ Install dependencies:
+
+```bash
+npm install
+```
+
+3️⃣ Run the app:
+
+```bash
+npm run dev  # If using Vite
+# or
+npm start    # If using CRA
+```
+
+4️⃣ Open [http://localhost:3000](http://localhost:3000) (or the port your dev server shows).
+
+## ✨ How It Works
+
+* The app initializes with default currencies: `USD` (from) and `INR` (to).
+* Exchange rates for the `from` currency are fetched using the `useCurrencyInfo` hook.
+* Users can enter an amount and select currencies to convert.
+* Clicking **Convert** performs the conversion.
+* The **Swap** button swaps the `from` and `to` currencies.
+
+## 📌 API Used
+
+[https://github.com/fawazahmed0/currency-api](https://github.com/fawazahmed0/currency-api)
+
+Example API endpoint:
+
+```
+https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json
+```
+
+## 📝 Notes
+
+* The app prevents negative amounts.
+* Conversion requires the API data to load; otherwise, the result will be `0`.
+* The UI features a background image and a blur effect for enhanced aesthetics.
+
+##
